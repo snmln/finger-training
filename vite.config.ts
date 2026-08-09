@@ -2,8 +2,15 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// Served from https://snmln.github.io/finger-training/ via GitHub Pages,
+// so all root-relative asset/manifest paths need this subpath prefix.
+// If a custom domain is ever wired up at the repo root, this (and the
+// manifest's start_url/scope below) should become '/'.
+const base = '/finger-training/'
+
 // https://vite.dev/config/
 export default defineConfig({
+  base,
   plugins: [
     react(),
     VitePWA({
@@ -17,8 +24,8 @@ export default defineConfig({
         background_color: '#16181A',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
-        scope: '/',
+        start_url: base,
+        scope: base,
         icons: [
           {
             src: 'pwa-192x192.png',

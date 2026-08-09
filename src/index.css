@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-basalt text-chalk font-body antialiased;
+    /* Subtle topo-map contour texture in the background, quarry-technical feel */
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(79, 179, 169, 0.05), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(216, 161, 63, 0.04), transparent 45%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  /* Numeric data (reps / weight / duration) always renders in mono */
+  .font-mono,
+  input[type='number'] {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+}
